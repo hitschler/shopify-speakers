@@ -9,7 +9,11 @@
   %}
 {% endcomment %}
 
-<ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
+<ul
+  class="list-unstyled list-social{% if class %} {{ class}}{% endif %}"
+  role="list"
+  style="--size:{{ size | default:'2.2' }}rem"
+>
   {%- if settings.social_facebook_link != blank -%}
     <li class="list-social__item">
       <a href="{{ settings.social_facebook_link }}" class="link list-social__link">

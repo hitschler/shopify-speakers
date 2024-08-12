@@ -237,7 +237,7 @@
           {%- endif -%}
 
           {%- if section.settings.show_social and has_social_icons -%}
-            {%- render 'social-icons', class: 'footer__list-social' -%}
+            {%- render 'social-icons', class: 'footer__list-social', size: section.settings.social_size -%}
           {%- endif -%}
         </div>
       </div>
@@ -467,6 +467,16 @@
       "id": "show_social",
       "default": true,
       "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "range",
+      "id": "social_size",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "rem",
+      "label": "t:sections.footer.settings.show_social.label",
+      "default": 2
     },
     {
       "type": "header",

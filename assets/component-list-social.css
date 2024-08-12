@@ -11,8 +11,8 @@
 }
 
 .list-social__item .icon {
-  height: 2.2rem;
-  width: 2.2rem;
+  height: var(--size);
+  width: var(--size);
 }
 
 .list-social__link {

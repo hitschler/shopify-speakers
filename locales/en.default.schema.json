@@ -1047,6 +1047,9 @@
         "show_social": {
           "label": "Show social media icons"
         },
+        "social_size": {
+          "label": "Social media icon size"
+        },
         "header__3": {
           "content": "Country/region selector"
         },
