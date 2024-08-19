@@ -1,0 +1,7 @@
+<a
+  class="image-link"
+  href="{{ settings.link_url }}"
+  style="width:{{ settings.image_size }}px;"
+>
+  {{- settings.link_image | image_url: width: settings.image_size | image_tag -}}
+</a>

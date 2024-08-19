@@ -65,81 +65,125 @@
           -%}
             {%- assign empty_column = ' multicolumn-list__item--empty' -%}
           {%- endif -%}
-
+          {% capture css_setting_classes %}
+            flex-column 
+            {{ block.settings.horizontal_align_mobile }} 
+            {{ block.settings.vertical_align_mobile }} 
+            {{ block.settings.horizontal_align_desktop }} 
+            {{ block.settings.vertical_align_desktop }} 
+            {{ block.settings.text_align_mobile }} 
+            {{ block.settings.text_align_desktop }}
+            {% if block.settings.mobile_order != blank %}grid__item-order-{{ block.settings.mobile_order }}{% endif %}
+          {% endcapture %}
           <li
             id="Slide-{{ section.id }}-{{ forloop.index }}"
-            class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="multicolumn-list__item {{ css_setting_classes }} grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {{ block.shopify_attributes }}
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
-              style="--animation-order: {{ forloop.index }};"
+              style="--animation-order: {{ forloop.index }}; --column-span:{{ block.settings.column_span_desktop }}; --column-offset-left:{{ block.settings.column_offset_left_desktop }}; --column-offset-right:{{ block.settings.column_offset_right_desktop }};"
             {% endif %}
           >
-            <div class="multicolumn-card content-container">
-              {%- if block.settings.image != blank -%}
-                {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
-                  {% assign spaced_image = true %}
-                {% endif %}
-                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
-                  <div
-                    class="media media--transparent media--{{ section.settings.image_ratio }}"
-                    {% if section.settings.image_ratio == 'adapt' %}
-                      style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
-                    {% endif %}
-                  >
-                    {%- liquid
-                      assign number_of_columns = section.settings.columns_desktop
-                      assign number_of_columns_mobile = section.settings.columns_mobile
-                      assign grid_space_desktop = number_of_columns | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
-                      assign grid_space_tablet = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
-                      assign grid_space_mobile = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | divided_by: 2 | plus: 30 | append: 'px'
-                      if section.settings.image_width == 'half'
-                        assign image_width = 0.5
-                      elsif section.settings.image_width == 'third'
-                        assign image_width = 0.33
-                      else
-                        assign image_width = 1
-                      endif
-                    -%}
-                    {% capture sizes %}
-                      (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) * {{ image_width }} /  {{ number_of_columns }}),
-                      (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) * {{ image_width }} / {{ number_of_columns }}),
-                      (min-width: 750px) calc((100vw - {{ grid_space_tablet }}) * {{ image_width }} / {{ number_of_columns_mobile }}),
-                      calc((100vw - {{ grid_space_mobile }}) * {{ image_width }} / {{ number_of_columns_mobile }})
-                    {% endcapture %}
-                    {{
-                      block.settings.image
-                      | image_url: width: 3200
-                      | image_tag:
-                        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
-                        sizes: sizes,
-                        class: 'multicolumn-card__image'
-                    }}
+            {% if block.type == 'column' %}
+              <div class="multicolumn-card content-container">
+                {%- if block.settings.image != blank -%}
+                  {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+                    {% assign spaced_image = true %}
+                  {% endif %}
+                  <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                    <div
+                      class="media media--transparent media--{{ section.settings.image_ratio }}"
+                      {% if section.settings.image_ratio == 'adapt' %}
+                        style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
+                      {% endif %}
+                    >
+                      {%- liquid
+                        assign number_of_columns = section.settings.columns_desktop
+                        assign number_of_columns_mobile = section.settings.columns_mobile
+                        assign grid_space_desktop = number_of_columns | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
+                        assign grid_space_tablet = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
+                        assign grid_space_mobile = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | divided_by: 2 | plus: 30 | append: 'px'
+                        if section.settings.image_width == 'half'
+                          assign image_width = 0.5
+                        elsif section.settings.image_width == 'third'
+                          assign image_width = 0.33
+                        else
+                          assign image_width = 1
+                        endif
+                      -%}
+                      {% capture sizes %}
+                        (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) * {{ image_width }} /  {{ number_of_columns }}),
+                        (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) * {{ image_width }} / {{ number_of_columns }}),
+                        (min-width: 750px) calc((100vw - {{ grid_space_tablet }}) * {{ image_width }} / {{ number_of_columns_mobile }}),
+                        calc((100vw - {{ grid_space_mobile }}) * {{ image_width }} / {{ number_of_columns_mobile }})
+                      {% endcapture %}
+                      {{
+                        block.settings.image
+                        | image_url: width: 3200
+                        | image_tag:
+                          widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                          sizes: sizes,
+                          class: 'multicolumn-card__image'
+                      }}
+                    </div>
                   </div>
+                {%- endif -%}
+                <div class="multicolumn-card__info">
+                  {%- if block.settings.title != blank -%}
+                    <h2 class="inline-richtext">{{ block.settings.title }}</h2>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="rte">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                  {%- if block.settings.link_label != blank -%}
+                    {%- if block.settings.link_type == 'default' -%}
+                      <a
+                        class="link animate-arrow"
+                        {% if block.settings.link == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ block.settings.link }}"
+                        {% endif %}
+                      >
+                        {{- block.settings.link_label | escape -}}
+                        <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
+                      >
+                    {%- elsif block.settings.link_type == 'button' -%}
+                      <div class="button-wrapper">
+                        <a
+                          class="button button--primary"
+                          {% if block.settings.link == blank %}
+                            role="link" aria-disabled="true"
+                          {% else %}
+                            href="{{ block.settings.link }}"
+                          {% endif %}
+                        >
+                          {{- block.settings.link_label | escape -}}
+                        </a>
+                        {{ block.settings.button_deco_image | image_url: width: 150 | image_tag }}
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
                 </div>
-              {%- endif -%}
-              <div class="multicolumn-card__info">
-                {%- if block.settings.title != blank -%}
-                  <h3 class="inline-richtext">{{ block.settings.title }}</h3>
-                {%- endif -%}
-                {%- if block.settings.text != blank -%}
-                  <div class="rte">{{ block.settings.text }}</div>
-                {%- endif -%}
-                {%- if block.settings.link_label != blank -%}
-                  <a
-                    class="link animate-arrow"
-                    {% if block.settings.link == blank %}
-                      role="link" aria-disabled="true"
-                    {% else %}
-                      href="{{ block.settings.link }}"
-                    {% endif %}
-                  >
-                    {{- block.settings.link_label | escape -}}
-                    <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
-                  >
-                {%- endif -%}
               </div>
-            </div>
+            {% elsif block.type == 'image' %}
+              <div class="multicolumn-image-card">
+                {% capture sizes %}
+                  (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) * {{ image_width }} /  {{ number_of_columns }}),
+                  (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) * {{ image_width }} / {{ number_of_columns }}),
+                  (min-width: 750px) calc((100vw - {{ grid_space_tablet }}) * {{ image_width }} / {{ number_of_columns_mobile }}),
+                  calc((100vw - {{ grid_space_mobile }}) * {{ image_width }} / {{ number_of_columns_mobile }})
+                {% endcapture %}
+                {{
+                  block.settings.image
+                  | image_url: width: 3200
+                  | image_tag:
+                    widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                    sizes: sizes,
+                    class: ''
+                }}
+              </div>
+            {% endif %}
           </li>
         {%- endfor -%}
       </ul>
@@ -390,12 +434,119 @@
       "name": "t:sections.multicolumn.blocks.column.name",
       "settings": [
         {
+          "type": "range",
+          "id": "column_span_desktop",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "label": "Desktop Column Span",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "column_offset_left_desktop",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Desktop Offset Left",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "column_offset_right_desktop",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Desktop Offset Right",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "horizontal_align_desktop",
+          "options": [
+            {
+              "value": "md:flex-align-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__1"
+            },
+            {
+              "value": "md:flex-align-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__2"
+            },
+            {
+              "value": "md:flex-align-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__3"
+            }
+          ],
+          "default": "md:flex-align-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.label_desktop"
+        },
+        {
+          "type": "select",
+          "id": "vertical_align_desktop",
+          "options": [
+            {
+              "value": "md:flex-justify-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__1"
+            },
+            {
+              "value": "md:flex-justify-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__2"
+            },
+            {
+              "value": "md:flex-justify-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__3"
+            }
+          ],
+          "default": "md:flex-justify-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.label_desktop"
+        },
+        {
+          "type": "select",
+          "id": "horizontal_align_mobile",
+          "options": [
+            {
+              "value": "flex-align-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__1"
+            },
+            {
+              "value": "flex-align-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__2"
+            },
+            {
+              "value": "flex-align-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__3"
+            }
+          ],
+          "default": "flex-align-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.label_mobile"
+        },
+        {
+          "type": "select",
+          "id": "vertical_align_mobile",
+          "options": [
+            {
+              "value": "flex-justify-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__1"
+            },
+            {
+              "value": "flex-justify-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__2"
+            },
+            {
+              "value": "flex-justify-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__3"
+            }
+          ],
+          "default": "flex-justify-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.label_mobile"
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.multicolumn.blocks.column.settings.image.label"
         },
         {
-          "type": "inline_richtext",
+          "type": "richtext",
           "id": "title",
           "default": "t:sections.multicolumn.blocks.column.settings.title.default",
           "label": "t:sections.multicolumn.blocks.column.settings.title.label"
@@ -407,6 +558,46 @@
           "label": "t:sections.multicolumn.blocks.column.settings.text.label"
         },
         {
+          "type": "select",
+          "id": "text_align_desktop",
+          "options": [
+            {
+              "value": "md:text-left",
+              "label": "t:sections.multicolumn.blocks.column.settings.text_align.options__1"
+            },
+            {
+              "value": "md:text-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.text_align.options__2"
+            },
+            {
+              "value": "md:text-right",
+              "label": "t:sections.multicolumn.blocks.column.settings.text_align.options__3"
+            }
+          ],
+          "default": "md:text-left",
+          "label": "t:sections.multicolumn.blocks.column.settings.text_align.label_desktop"
+        },
+        {
+          "type": "select",
+          "id": "text_align_mobile",
+          "options": [
+            {
+              "value": "text-left",
+              "label": "t:sections.multicolumn.blocks.column.settings.text_align.options__1"
+            },
+            {
+              "value": "text-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.text_align.options__2"
+            },
+            {
+              "value": "text-right",
+              "label": "t:sections.multicolumn.blocks.column.settings.text_align.options__3"
+            }
+          ],
+          "default": "text-left",
+          "label": "t:sections.multicolumn.blocks.column.settings.text_align.label_mobile"
+        },
+        {
           "type": "text",
           "id": "link_label",
           "label": "t:sections.multicolumn.blocks.column.settings.link_label.label"
@@ -415,6 +606,150 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.multicolumn.blocks.column.settings.link.label"
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "options": [
+            {
+              "value": "default",
+              "label": "t:sections.multicolumn.blocks.column.settings.link_type.options__1"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.multicolumn.blocks.column.settings.link_type.options__2"
+            }
+          ],
+          "default": "default",
+          "label": "t:sections.multicolumn.blocks.column.settings.link_type.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "button_deco_image",
+          "label": "Button Decorational Image"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "t:sections.multicolumn.blocks.image.name",
+      "settings": [
+        {
+          "type": "range",
+          "id": "column_span_desktop",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "label": "Desktop Column Span",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "column_offset_left_desktop",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Desktop Offset Left",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "column_offset_right_desktop",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Desktop Offset Right",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "horizontal_align_desktop",
+          "options": [
+            {
+              "value": "md:flex-align-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__1"
+            },
+            {
+              "value": "md:flex-align-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__2"
+            },
+            {
+              "value": "md:flex-align-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__3"
+            }
+          ],
+          "default": "md:flex-align-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.label_desktop"
+        },
+        {
+          "type": "select",
+          "id": "vertical_align_desktop",
+          "options": [
+            {
+              "value": "md:flex-justify-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__1"
+            },
+            {
+              "value": "md:flex-justify-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__2"
+            },
+            {
+              "value": "md:flex-justify-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__3"
+            }
+          ],
+          "default": "md:flex-justify-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.label_desktop"
+        },
+        {
+          "type": "select",
+          "id": "horizontal_align_mobile",
+          "options": [
+            {
+              "value": "flex-align-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__1"
+            },
+            {
+              "value": "flex-align-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__2"
+            },
+            {
+              "value": "flex-align-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.options__3"
+            }
+          ],
+          "default": "flex-align-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.horizontal_align.label_mobile"
+        },
+        {
+          "type": "select",
+          "id": "vertical_align_mobile",
+          "options": [
+            {
+              "value": "flex-justify-start",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__1"
+            },
+            {
+              "value": "flex-justify-center",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__2"
+            },
+            {
+              "value": "flex-justify-end",
+              "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.options__3"
+            }
+          ],
+          "default": "flex-justify-start",
+          "label": "t:sections.multicolumn.blocks.column.settings.vertical_align.label_mobile"
+        },
+        {
+          "type": "number",
+          "id": "mobile_order",
+          "label": "Mobile Block Order"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
         }
       ]
     }

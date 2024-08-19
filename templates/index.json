@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "image_banner": {
@@ -15,26 +6,27 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "<p>Philip<\/p><p>Hitschler-<\/p><p>Becker<\/p>",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text": "CEO \/ Speaker \/ Brand Ambassador",
+            "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
+            "button_label_1": "Get in touch",
+            "button_link_1": "mailto:gf@hitschler.de",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": false,
+            "sticker_image": "shopify:\/\/shop_images\/HIT_PHB_Pfeile_Pfeil_Blau_Kopie_2.png"
           }
         }
       },
@@ -44,129 +36,20 @@
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "image": "shopify:\/\/shop_images\/hero_desktop.jpg",
+        "image_2": "shopify:\/\/shop_images\/hero_mobile.jpg",
+        "image_overlay_opacity": 100,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-left",
         "show_text_box": false,
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "color_scheme": "scheme-3",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
+        "mobile_content_position": "bottom-left",
+        "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_text_below": false,
+        "use_second_image_for_mobile": true
       }
     },
     "multicolumn": {
@@ -175,61 +58,645 @@
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "column_span_desktop": 5,
+            "column_offset_left_desktop": 1,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-end",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Wer nicht mit der Zeit <br\/>geht, geht mit der Zeit.“<\/p>",
+            "text": "",
+            "text_align_desktop": "text-right",
+            "text_align_mobile": "text-left",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "link_type": "default"
           }
         },
-        "column2": {
-          "type": "column",
+        "image_w88fyy": {
+          "type": "image",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "mobile_order": 3,
+            "image": "shopify:\/\/shop_images\/Philip_Hitschler-Becker_hitschies_2023-13_1_1.png"
           }
         },
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p><strong>Hey Friends!<\/strong> Ich bin Philip, CEO von hitschies. In vierter Generation leite ich unser Familienunternehmen hitschler. Social Media ist uns mega wichtig, denn wir möchten DIE digitale Candy Brand sein. Zusammen mit meinem Team stehe ich selbst täglich vor der Kamera, um unserer Community Einblicke in die bunte Welt von hitschies zu geben.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "column_iPaQh4": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 6,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Zurückhaltung hat noch <\/p><p>keinen nach vorne gebracht.“<\/p>",
+            "text": "",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "column_UpUXpV": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p>Mein Antrieb war es, durch Keynotes persönlichere Einblicke hinter die Kulissen von hitschler und hitschies zu geben. Dabei spreche ich über unser Familienunternehmen, Personal Branding, den Weg zur digitalen Candy Brand und unseren viralen TikTok-Hype um die sauren Drachenzungen.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_CfFqUP": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/HitschiesBlauPartyWebsite-610.jpg"
+          }
+        },
+        "column_BYeCeK": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 6,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-end",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Erfolg hat 6 Buchstaben<br\/>M A C H E N !“<\/p>",
+            "text": "",
+            "text_align_desktop": "md:text-right",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_tmUGp9": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/Hitschies-Party-2023-GP-148.jpg"
+          }
+        },
+        "column_aJzHeE": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p>Als ich vor 7 Jahren ins Familienunternehmen einstieg, wollte ich Start-up-Geist mit der Tradition verbinden. Hier sind wir nun! Mein Ziel ist es, dass jeder hitschies vom Smartphone kennt und ich das Unternehmen komplett digital steuern kann.<\/p><p>Deswegen let’s get digital in contact! Ich freue mich megaaa Teil eures nächsten Events zu sein.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "Keynote Anfragen",
+            "link": "mailto:gf@hitschler.de",
+            "link_type": "button",
+            "button_deco_image": "shopify:\/\/shop_images\/HIT_PHB_Pfeile_Pfeil_Blau_Kopie_2.png"
           }
         }
       },
       "block_order": [
         "column1",
-        "column2",
-        "column3"
+        "image_w88fyy",
+        "column3",
+        "column_iPaQh4",
+        "column_UpUXpV",
+        "image_CfFqUP",
+        "column_BYeCeK",
+        "image_tmUGp9",
+        "column_aJzHeE"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
+        "columns_desktop": 6,
+        "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-4",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_UGB3ja": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qQhYMa": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 5,
+            "column_offset_left_desktop": 1,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-end",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Wer nicht mit der Zeit <br\/>geht, geht mit der Zeit.“<\/p>",
+            "text": "",
+            "text_align_desktop": "text-right",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_7PtJ6L": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/Philip_Hitschler-Becker_hitschies_2023-13_1_1.png"
+          }
+        },
+        "column_cHjmFX": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p><strong>Hey Friends!<\/strong> Ich bin Philip, CEO von hitschies. In vierter Generation leite ich unser Familienunternehmen hitschler. Social Media ist uns mega wichtig, denn wir möchten DIE digitale Candy Brand sein. Zusammen mit meinem Team stehe ich selbst täglich vor der Kamera, um unserer Community Einblicke in die bunte Welt von hitschies zu geben.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "column_aQgEb4": {
+          "type": "column",
+          "settings": {
+            "column_span_desktop": 6,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Zurückhaltung hat noch <\/p><p>keinen nach vorne gebracht.“<\/p>",
+            "text": "",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "column_eJLztg": {
+          "type": "column",
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p>Mein Antrieb war es, durch Keynotes persönlichere Einblicke hinter die Kulissen von hitschler und hitschies zu geben. Dabei spreche ich über unser Familienunternehmen, Personal Branding, den Weg zur digitalen Candy Brand und unseren viralen TikTok-Hype um die sauren Drachenzungen.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_PFBrL4": {
+          "type": "image",
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/HitschiesBlauPartyWebsite-610.jpg"
+          }
+        },
+        "column_4AUDyE": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 6,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-end",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Erfolg hat 6 Buchstaben<br\/>M A C H E N !“<\/p>",
+            "text": "",
+            "text_align_desktop": "md:text-right",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_MUNgjD": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/Hitschies-Party-2023-GP-148.jpg"
+          }
+        },
+        "column_kgeBND": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p>Als ich vor 7 Jahren ins Familienunternehmen einstieg, wollte ich Start-up-Geist mit der Tradition verbinden. Hier sind wir nun! Mein Ziel ist es, dass jeder hitschies vom Smartphone kennt und ich das Unternehmen komplett digital steuern kann.<\/p><p>Deswegen let’s get digital in contact! Ich freue mich megaaa Teil eures nächsten Events zu sein.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "Keynote Anfragen",
+            "link": "mailto:gf@hitschler.de",
+            "link_type": "button",
+            "button_deco_image": "shopify:\/\/shop_images\/HIT_PHB_Pfeile_Pfeil_Blau_Kopie_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_qQhYMa",
+        "image_7PtJ6L",
+        "column_cHjmFX",
+        "column_aQgEb4",
+        "column_eJLztg",
+        "image_PFBrL4",
+        "column_4AUDyE",
+        "image_MUNgjD",
+        "column_kgeBND"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_GnkH6C": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qRH7TX": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 5,
+            "column_offset_left_desktop": 1,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-end",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Wer nicht mit der Zeit <br\/>geht, geht mit der Zeit.“<\/p>",
+            "text": "",
+            "text_align_desktop": "text-right",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_qrqKty": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/Philip_Hitschler-Becker_hitschies_2023-13_1_1.png"
+          }
+        },
+        "column_HRQBzJ": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p><strong>Hey Friends!<\/strong> Ich bin Philip, CEO von hitschies. In vierter Generation leite ich unser Familienunternehmen hitschler. Social Media ist uns mega wichtig, denn wir möchten DIE digitale Candy Brand sein. Zusammen mit meinem Team stehe ich selbst täglich vor der Kamera, um unserer Community Einblicke in die bunte Welt von hitschies zu geben.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "column_g9dFwc": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 6,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Zurückhaltung hat noch <\/p><p>keinen nach vorne gebracht.“<\/p>",
+            "text": "",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "column_m3HfNf": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p>Mein Antrieb war es, durch Keynotes persönlichere Einblicke hinter die Kulissen von hitschler und hitschies zu geben. Dabei spreche ich über unser Familienunternehmen, Personal Branding, den Weg zur digitalen Candy Brand und unseren viralen TikTok-Hype um die sauren Drachenzungen.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_p9FQFt": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "image": "shopify:\/\/shop_images\/HitschiesBlauPartyWebsite-610.jpg"
+          }
+        },
+        "column_j7DmKm": {
+          "type": "column",
+          "settings": {
+            "column_span_desktop": 6,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-end",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "<p>„Erfolg hat 6 Buchstaben<br\/>M A C H E N !“<\/p>",
+            "text": "",
+            "text_align_desktop": "md:text-right",
+            "text_align_mobile": "text-left",
+            "link_label": "",
+            "link": "",
+            "link_type": "default"
+          }
+        },
+        "image_zTJLdm": {
+          "type": "image",
+          "settings": {
+            "column_span_desktop": 4,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-start",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "mobile_order": 3,
+            "image": "shopify:\/\/shop_images\/Hitschies-Party-2023-GP-148.jpg"
+          }
+        },
+        "column_kUFVmK": {
+          "type": "column",
+          "settings": {
+            "column_span_desktop": 2,
+            "column_offset_left_desktop": 0,
+            "column_offset_right_desktop": 0,
+            "horizontal_align_desktop": "md:flex-align-start",
+            "vertical_align_desktop": "md:flex-justify-center",
+            "horizontal_align_mobile": "flex-align-start",
+            "vertical_align_mobile": "flex-justify-start",
+            "title": "",
+            "text": "<p>Als ich vor 7 Jahren ins Familienunternehmen einstieg, wollte ich Start-up-Geist mit der Tradition verbinden. Hier sind wir nun! Mein Ziel ist es, dass jeder hitschies vom Smartphone kennt und ich das Unternehmen komplett digital steuern kann.<\/p><p>Deswegen let’s get digital in contact! Ich freue mich megaaa Teil eures nächsten Events zu sein.<\/p>",
+            "text_align_desktop": "text-left",
+            "text_align_mobile": "text-left",
+            "link_label": "Keynote Anfragen",
+            "link": "mailto:gf@hitschler.de",
+            "link_type": "button",
+            "button_deco_image": "shopify:\/\/shop_images\/HIT_PHB_Pfeile_Pfeil_Blau_Kopie_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_qRH7TX",
+        "image_qrqKty",
+        "column_HRQBzJ",
+        "column_g9dFwc",
+        "column_m3HfNf",
+        "image_p9FQFt",
+        "column_j7DmKm",
+        "image_zTJLdm",
+        "column_kUFVmK"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
         "padding_bottom": 36
+      }
+    },
+    "collapsible_content_hqHJwE": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_ipMCAh": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Tradition trifft Innovation in 4. Generation",
+            "icon": "none",
+            "row_content": "<h3>Die süße Geschichte hinter hitschies<\/h3><p><strong>Wie CEO Philip Hitschler-Becker das Familienunternehmen hitschler in die digitale Ära führt und die Community mit innovativen Produkten begeistert.<\/strong><\/p><p>„Hey Friends!“ So startet jede meiner Stories auf Instagram! Mein Name ist Philip und ich bin der CEO von hitschies – DER digitalen Candybrand N°1. Ganz nach dem Motto „Wer nicht mit der Zeit geht, geht mit der Zeit.“ leite ich unser Familien­unternehmen hitschler in vierter Generation mit tatkräftiger Unterstützung meiner Familie und meines Teams. Social Media hat dabei einen ganz besonderen Stellenwert erhalten. Als CEO bin ich nicht nur 24\/7 im Einsatz, sondern stehe auch selbst vor der Kamera und gebe unserer Community Einblicke in die süße, bunte Welt von hitschies. Bei fast 100 Jahren Unternehmens­geschichte gibt es nämlich einiges zu erzählen. Und der Hype um unsere Saure Drachenzungen bestätigt uns immer wieder darin, dass wir auf dem richtigen Weg sind. Darauf ruhen wir uns aber nicht aus, sondern versuchen durch Produkt­neuheiten wie die Sauren Drachenzungen Brizzl Bälle oder Wassereis unsere Community, die wir in unserem Sprachgebrauch „Friends“ nennen immer wieder mit süßen und sauren Köstlichkeiten zu überraschen. Macht euch gerne selbst einen Eindruck und besucht uns in unserem <a href=\"https:\/\/www.hitschies.de\" target=\"_blank\" title=\"https:\/\/www.hitschies.de\">Onlineshop hitschies. Nasch dein Ding.<\/a><\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GCWnJU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Es war noch nie so leicht wie heute Menschen zu erreichen",
+            "icon": "none",
+            "row_content": "<h3>Als CEO und Markenbotschafter Philip Hitschler-Becker stehe ich vor der Kamera und auf der Bühne<\/h3><p><strong>In meinen Keynotes spreche ich über die Übernahme des Familienunternehmens, Personal Branding und den Saure Drachenzungen TikTok-Hype.<\/strong><\/p><p>„Zurückhaltung hat noch keinen nach vorne gebracht.“ Genau das war mein persönlicher Antrieb und der Grund, weshalb ich vor 2 Jahren damit angefangen habe, durch Keynotes noch persönlichere und tiefere Einblicke hinter die Kulissen der Firma hitschler und der Marke hitschies zu geben. Dabei spreche ich über Themen wie unser Familienunternehmen, das Thema Personal Branding, meiner Rolle als CEO und Brand Ambassador, dem Weg von hitschies zur digitalen Candy Brand und wie wir den viralen TikTok-Hype rund um unsere sauren Drachenzungen kreiert haben. Doch aus diesem Hype ist eine Produktrange entstanden, die unsere Friends lieben. Daneben erfreuen die HITSCHIES als ikonische Kaubobons jung und alt und auch unsere brizzl UFOs sprechen neben dem hitschies Fruchtgummi Sortiment eine Zielgruppe an, die so bunt wie eine Tüte HITSCHIES ist und von vegan bis halal reicht. Das HITSCHIES Kaubobon hat zudem den Vorteil glutenfrei zu sein. Wenn ihr mehr über die bunte hitschies Produktpalette und Philips Weg erfahren möchtet, schickt eure Anfrage einfach an <a href=\"mailto:gf@hitschler.de\" title=\"mailto:gf@hitschler.de\">gf@hitschler.de<\/a><\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_8kgmgV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Warum Erfolg bei hitschies 6 Buchstaben hat:",
+            "icon": "none",
+            "row_content": "<h3>M A C H E N!<\/h3><p><strong>Das ist die Mentalität, die ich mit meinem Team im hitschies Campus in Hürth tagtäglich lebt.<\/strong><\/p><p>Als ich vor 7 Jahren in unser Familien­unternehmen eingestiegen bin, war es mein Wunsch eine Struktur zu schaffen, welche jungen, dynamischen Start-up-Geist mit der Sicherheit und Tradition des Familien­unternehmertums verbindet. Was soll ich sagen: Here we are! Mit dieser Basis ist es nun mein Ziel, dass jeder hitschies vom Smartphone kennt und ich das Unternehmen damit komplett steuern kann. Neben dem <a href=\"https:\/\/www.hitschies.de\" target=\"_blank\" title=\"https:\/\/www.hitschies.de\">hitschies Onlineshop<\/a> und den hitschies und Philip Hitschler-Becker Social Media Kanälen Instagram, TikTok, LinkedIn und Youtube, haben wir auch einen Onlineshop für B2B-Kunden. So könnt ihr euch eure eigene hitschies Candy Bar im Büro herrichten oder euer Kiosk, Tankstelle, Restaurant, Event oder Automaten mit unseren süßen Köstlichkeiten verzaubern. Besucht jetzt unseren Business Onlineshop und erhaltet mega Konditionen ab 250€ Bestellwert: <a href=\"https:\/\/business.hitschies.de\" target=\"_blank\" title=\"https:\/\/business.hitschies.de\">Business-hitschies<\/a><\/p><p><\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jKdcdH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Süße und saure Köstlichkeiten für das nächste Event",
+            "icon": "none",
+            "row_content": "<h3>Der hitschies B2B-Onlineshop<\/h3><p><strong>Als Geschäftskunde gibt es hitschies Süßigkeiten jetzt zu megaaa Preisen.<\/strong><\/p><p>Braucht ihr süßen Na(s)chschub für eure nächste Firmenfeier, Veranstaltung oder einfach für die Candy Bar im Büro? Dann könnt ihr jetzt unseren Business Onlineshop besuchen und erhaltet gleichzeitig mega Konditionen mit direkter Rechnungsstellung.<\/p><p>Hier kommt ihr zum <a href=\"https:\/\/business.hitschies.de\" target=\"_blank\" title=\"https:\/\/business.hitschies.de\">B2B-Onlineshop<\/a><\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_ipMCAh",
+        "collapsible_row_GCWnJU",
+        "collapsible_row_8kgmgV",
+        "collapsible_row_jKdcdH"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Und sonst so...",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "scheme-4",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 72
       }
     }
   },
   "order": [
     "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "multicolumn",
+    "multicolumn_UGB3ja",
+    "multicolumn_GnkH6C",
+    "collapsible_content_hqHJwE"
   ]
 }

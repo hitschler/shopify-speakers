@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "current": {
     "logo_width": 90,
@@ -18,9 +9,9 @@
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
-    "buttons_border_thickness": 1,
+    "buttons_border_thickness": 0,
     "buttons_border_opacity": 100,
-    "buttons_radius": 0,
+    "buttons_radius": 40,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
@@ -42,7 +33,7 @@
     "card_style": "standard",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-2",
+    "card_color_scheme": "scheme-4",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
@@ -105,6 +96,8 @@
     "sold_out_badge_color_scheme": "scheme-3",
     "social_facebook_link": "",
     "social_instagram_link": "https:\/\/www.instagram.com\/philip_hitschler\/",
+    "social_whatsapp_link": "https:\/\/api.whatsapp.com\/send\/?phone=49015122189810&text=Hey%20Philip%2C%20%0Awir%20w%C3%BCrden%20dich%20gerne%20f%C3%BCr%20eine%20Keynote%20anfragen.",
+    "social_linkedin_link": "https:\/\/de.linkedin.com\/in\/philip-hitschler-becker-09588b91",
     "social_youtube_link": "",
     "social_tiktok_link": "https:\/\/www.tiktok.com\/@philiphitschler",
     "social_twitter_link": "",
@@ -112,7 +105,7 @@
     "social_pinterest_link": "",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
-    "predictive_search_enabled": true,
+    "predictive_search_enabled": false,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
@@ -140,9 +133,9 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#ffffff",
+          "background": "rgba(0,0,0,0)",
           "background_gradient": "",
-          "text": "#121212",
+          "text": "#ffffff",
           "button": "#121212",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
@@ -162,22 +155,22 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#242833",
-          "background_gradient": "",
+          "background": "rgba(0,0,0,0)",
+          "background_gradient": "linear-gradient(90deg, rgba(14, 9, 55, 1), rgba(33, 249, 150, 0) 49%)",
           "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#000000",
-          "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "button": "#00d1ff",
+          "button_label": "#2d2761",
+          "secondary_button_label": "#00d1ff",
+          "shadow": "rgba(0,0,0,0)"
         }
       },
       "scheme-4": {
         "settings": {
-          "background": "#121212",
-          "background_gradient": "",
+          "background": "rgba(0,0,0,0)",
+          "background_gradient": "linear-gradient(180deg, rgba(45, 39, 97, 1), rgba(0, 209, 255, 1) 100%)",
           "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#121212",
+          "button": "#00d1ff",
+          "button_label": "#2d2761",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
@@ -185,11 +178,22 @@
       "scheme-5": {
         "settings": {
           "background": "#334fb4",
-          "background_gradient": "",
+          "background_gradient": "linear-gradient(180deg, rgba(225, 3, 150, 1), rgba(45, 39, 97, 1) 100%)",
           "text": "#ffffff",
           "button": "#ffffff",
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-d3c83813-ce0d-450e-bb48-4bd2800a412a": {
+        "settings": {
+          "background": "rgba(0,0,0,0)",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
       }

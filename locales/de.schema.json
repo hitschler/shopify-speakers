@@ -2277,6 +2277,20 @@
         "column": {
           "name": "Spalte",
           "settings": {
+            "horizontal_align":{
+              "label_desktop":"Desktop Horizontale Inhaltsausrichtung",
+              "label_mobile":"Mobile Horizontale Inhaltsausrichtung",
+              "options__1":"Left",
+              "options__2":"Center",
+              "options__3":"Right"
+            },
+            "vertical_align":{
+              "label_desktop":"Desktop Vertikale Inhaltsausrichtung",
+              "label_mobile":"Mobile Vertikale Inhaltsausrichtung",
+              "options__1":"Top",
+              "options__2":"Center",
+              "options__3":"Bottom"
+            },
             "image": {
               "label": "Bild"
             },

@@ -10,8 +10,10 @@ function onIntersection(elements, observer) {
       const elementTarget = element.target;
       if (elementTarget.classList.contains(SCROLL_ANIMATION_OFFSCREEN_CLASSNAME)) {
         elementTarget.classList.remove(SCROLL_ANIMATION_OFFSCREEN_CLASSNAME);
-        if (elementTarget.hasAttribute('data-cascade'))
-          elementTarget.setAttribute('style', `--animation-order: ${index};`);
+        if (elementTarget.hasAttribute('data-cascade')){
+          let previousStyle = elementTarget.getAttribute('style');
+          elementTarget.setAttribute('style', `${previousStyle} --animation-order: ${index};`);
+        }
       }
       observer.unobserve(elementTarget);
     } else {
