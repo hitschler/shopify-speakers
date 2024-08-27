@@ -56,10 +56,21 @@
 
 <div
   id="Banner-{{ section.id }}"
-  class="banner {% if section.settings.use_second_image_for_mobile == true %}different-mobile-and-desktop{% endif %} banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank and section.settings.use_second_image_for_mobile == false %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  class="banner {% if section.settings.use_second_image_for_mobile == true %}different-mobile-and-desktop{% endif %} {% if section.settings.space_filler_desktop != blank %}empty-space-filler{% endif %} banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank and section.settings.use_second_image_for_mobile == false %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
+  {% if section.settings.space_filler_desktop != blank %}
+    <div
+      class="empty-space-filler-element hide-mobile"
+      style="background:{{ section.settings.space_filler_desktop }}"
+    ></div>
+  {% endif %}
   {%- if section.settings.image != blank -%}
-    <div class="banner__media media color-{{ section.settings.color_scheme }}{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank and section.settings.use_second_image_for_mobile == false %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} {% if section.settings.use_second_image_for_mobile == true %}hide-mobile{% endif %}">
+    <div
+      class="banner__media color-{{ section.settings.color_scheme }} media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank and section.settings.use_second_image_for_mobile == false %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} {% if section.settings.use_second_image_for_mobile == true %}hide-mobile{% endif %}"
+      {% if section.settings.image_max_width_desktop != blank %}
+        style="max-width:{{ section.settings.image_max_width_desktop }};"
+      {% endif %}
+    >
       {%- liquid
         assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
         if section.settings.image_2 != blank and section.settings.use_second_image_for_mobile == false
@@ -122,7 +133,15 @@
       }}
     </div>
   {%- endif -%}
-  <div class="banner__content banner__content--{{ section.settings.mobile_content_position }} banner__content--desktop-{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="page-width banner__content banner__content--{{ section.settings.mobile_content_position }} banner__content--desktop-{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {% comment %}
+      {% if section.settings.space_filler_mobile != blank %}
+        <div
+          class="empty-space-filler-element show-mobile"
+          style="background:{{ section.settings.space_filler_mobile }}"
+        ></div>
+      {% endif %}
+    {% endcomment %}
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -419,6 +438,21 @@
       "id": "use_second_image_for_mobile",
       "default": false,
       "label": "Second Image as mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "image_max_width_desktop",
+      "label": "Set Max Width for image on desktop"
+    },
+    {
+      "type": "color_background",
+      "id": "space_filler_desktop",
+      "label": "Fill empty space. Gradient is overlayed. Background fills empty space."
+    },
+    {
+      "type": "color_background",
+      "id": "space_filler_mobile",
+      "label": "Fill empty space. Gradient is overlayed. Background fills empty space."
     }
   ],
   "blocks": [

@@ -62,6 +62,14 @@
       </a>
     </li>
   {%- endif -%}
+  {%- if settings.social_mail_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_mail_link }}" class="link list-social__link">
+        {%- render 'icon-mail' -%}
+        <span class="visually-hidden">{{ 'general.social.links.linkedin' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
   {%- if settings.social_twitter_link != blank -%}
     <li class="list-social__item">
       <a href="{{ settings.social_twitter_link }}" class="link list-social__link">

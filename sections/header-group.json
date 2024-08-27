@@ -30,34 +30,37 @@
     "header": {
       "type": "header",
       "blocks": {
-        "image_link_wq8Rfq": {
+        "image_link_dkdmpm": {
           "type": "image_link",
           "settings": {
-            "link_image": "shopify:\/\/shop_images\/Hitschies_Kommunikationslogo_1080_ohne_weissraum.png",
-            "link_url": "https:\/\/www.hitschies.de\/",
-            "image_size": 160
+            "link_image": "shopify:\/\/shop_images\/hitschler-unternehmens-logo-weiss.png",
+            "link_url": "https:\/\/www.hitschies.de",
+            "make_black_white": false,
+            "image_width": 120,
+            "image_width_desktop": 140,
+            "image_margin_top_desktop": "-18px"
           }
         }
       },
       "block_order": [
-        "image_link_wq8Rfq"
+        "image_link_dkdmpm"
       ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
         "general_menu_type": "one_pager_without_shop",
-        "menu_type_desktop": "mega",
+        "menu_type_desktop": "dropdown",
         "sticky_header_type": "none",
         "show_socials": true,
         "show_line_separator": false,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "menu_color_scheme": "",
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "enable_customer_avatar": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 20,
+        "padding_top": 32,
         "padding_bottom": 20
       }
     }

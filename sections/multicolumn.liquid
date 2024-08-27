@@ -3,7 +3,7 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-top: {%if section.settings.custom_padding%}{{ section.settings.custom_padding }}{%else%}{{ section.settings.padding_top | times: 0.75 | round: 0 }}px{%endif%};
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
@@ -167,7 +167,31 @@
                 </div>
               </div>
             {% elsif block.type == 'image' %}
-              <div class="multicolumn-image-card">
+              <div class="multicolumn-image-card block-{{ block.id }}">
+                {% style %}
+                  .block-{{ block.id }}{
+                    {% if block.settings.block_margin_top_mobile %}
+                      margin-top: {{ block.settings.block_margin_top_mobile }};
+                    {% endif %}
+                    {% if block.settings.block_margin_bottom_mobile %}
+                      margin-bottom: {{ block.settings.block_margin_bottom_mobile }};
+                    {% endif %}
+                  }
+                  @media screen and (min-width: 750px) {
+                    .block-{{ block.id }}{
+                      {% if block.settings.block_margin_top_desktop %}
+                        margin-top: {{ block.settings.block_margin_top_desktop }};
+                      {% else %}
+                        margin-top:0;
+                      {% endif %}
+                      {% if block.settings.block_margin_bottom_desktop %}
+                        margin-bottom: {{ block.settings.block_margin_bottom_desktop }};
+                      {% else %}
+                        margin-bottom:0;
+                      {% endif %}
+                    }
+                  }
+                {% endstyle %}
                 {% capture sizes %}
                   (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) * {{ image_width }} /  {{ number_of_columns }}),
                   (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) * {{ image_width }} / {{ number_of_columns }}),
@@ -182,6 +206,81 @@
                     sizes: sizes,
                     class: ''
                 }}
+                {% if block.settings.sticker_image != blank %}
+                  {% style %}
+                    .sticker-image.sticker-block-{{ block.id }}{
+                      position:absolute;
+                      {% if block.settings.sticker_position_x == "sticker-x-left" %}
+                        left:0;
+                        --translateX: 0%;
+                      {% elsif block.settings.sticker_position_x == "sticker-x-center" %}
+                        left:0;
+                        right:0;
+                        margin-left:auto;
+                        margin-right:auto;
+                        --translateX: 0;
+                      {% elsif block.settings.sticker_position_x == "sticker-x-right" %}
+                        right:0;
+                        --translateX: 0%;
+                      {% endif %}
+                      {% if block.settings.sticker_position_y == "sticker-y-top" %}
+                        top:0;
+                        --translateY: -50%;
+                      {% elsif block.settings.sticker_position_y == "sticker-y-center" %}
+                        top:0;
+                        bottom:0;
+                        margin-top:auto;
+                        margin-bottom:auto;
+                        --translateY: 0;
+                      {% elsif block.settings.sticker_position_y == "sticker-y-bottom" %}
+                        bottom:0;
+                        --translateY: 50%;
+                      {% endif %}
+                      {% if block.settings.sticker_x_offset != blank %}
+                        --translateX: {{ block.settings.sticker_x_offset }};
+                      {% endif %}
+                      {% if block.settings.sticker_y_offset != blank %}
+                        --translateY: {{ block.settings.sticker_y_offset }};
+                      {% endif %}
+
+                      width:{{ block.settings.sticker_size_mobile }};
+                      height:auto;
+
+                      transform:translateX(var(--translateX)) translateY(var(--translateY)) rotate({{ block.settings.sticker_rotation }}deg);
+                    }
+
+                    @media screen and (min-width: 750px) {
+                      .sticker-image.sticker-block-{{ block.id }}{
+                        {% if block.settings.sticker_x_offset_desktop != blank %}
+                          --translateX: {{ block.settings.sticker_x_offset_desktop }};
+                        {% endif %}
+                        {% if block.settings.sticker_y_offset_desktop != blank %}
+                          --translateY: {{ block.settings.sticker_y_offset_desktop }};
+                        {% endif %}
+                        width:{{ block.settings.sticker_size_desktop }};
+                      }
+                    }
+                  {% endstyle %}
+                  {% capture sticker_classes %}
+                    sticker-image
+                    sticker-block-{{ block.id }}
+                    {{ block.settings.sticker_position_x }}
+                  {% endcapture %}
+                  {% if block.settings.sticker_url %}
+                    <a href="{{ block.settings.sticker_url }}">
+                  {% endif %}
+                  {{
+                    block.settings.sticker_image
+                    | image_url: width: 400
+                    | image_tag:
+                      widths: '50, 75, 100, 150, 200, 300, 400, 500, 750',
+                      sizes: sizes,
+                      class: sticker_classes
+                  }}
+                  {% if block.settings.sticker_url %}
+                    </a>
+                  {% endif %}
+                {% endif %}
               </div>
             {% endif %}
           </li>
@@ -426,6 +525,11 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "custom_padding",
+      "label": "Custom Padding (CSS with Unit)"
     }
   ],
   "blocks": [
@@ -747,9 +851,118 @@
           "label": "Mobile Block Order"
         },
         {
+          "type": "text",
+          "id": "block_margin_top_desktop",
+          "label": "margin Top Desktop"
+        },
+        {
+          "type": "text",
+          "id": "block_margin_bottom_desktop",
+          "label": "margin Bottom Desktop"
+        },
+        {
+          "type": "text",
+          "id": "block_margin_top_mobile",
+          "label": "margin Top Mobile"
+        },
+        {
+          "type": "text",
+          "id": "block_margin_bottom_mobile",
+          "label": "margin Bottom Mobile"
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "header",
+          "content": "Sticker"
+        },
+        {
+          "type": "image_picker",
+          "id": "sticker_image",
+          "label": "Sticker"
+        },
+        {
+          "type": "select",
+          "id": "sticker_position_x",
+          "options": [
+            {
+              "value": "sticker-x-left",
+              "label": "Left"
+            },
+            {
+              "value": "sticker-x-center",
+              "label": "Center"
+            },
+            {
+              "value": "sticker-x-right",
+              "label": "Right"
+            }
+          ],
+          "default": "sticker-x-left",
+          "label": "Sticker Position Horizontal"
+        },
+        {
+          "type": "select",
+          "id": "sticker_position_y",
+          "options": [
+            {
+              "value": "sticker-y-top",
+              "label": "Top"
+            },
+            {
+              "value": "sticker-y-center",
+              "label": "Center"
+            },
+            {
+              "value": "sticker-y-bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "sticker-y-top",
+          "label": "Sticker Position Vertical"
+        },
+        {
+          "type": "text",
+          "id": "sticker_x_offset",
+          "label": "Sticker Horizontal Offset"
+        },
+        {
+          "type": "text",
+          "id": "sticker_y_offset",
+          "label": "Sticker Vertical Offset"
+        },
+        {
+          "type": "text",
+          "id": "sticker_x_offset_desktop",
+          "label": "Sticker Horizontal Offset Desktop"
+        },
+        {
+          "type": "text",
+          "id": "sticker_y_offset_desktop",
+          "label": "Sticker Vertical Offset Desktop"
+        },
+        {
+          "type": "text",
+          "id": "sticker_size_desktop",
+          "label": "Sticker Size Desktop"
+        },
+        {
+          "type": "text",
+          "id": "sticker_size_mobile",
+          "label": "Sticker Size Mobile"
+        },
+        {
+          "type": "number",
+          "id": "sticker_rotation",
+          "label": "Sticker Rotation"
+        },
+        {
+          "type": "url",
+          "id": "sticker_url",
+          "label": "Sticker Link"
         }
       ]
     }

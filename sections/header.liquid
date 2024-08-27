@@ -83,7 +83,7 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding: {{ section.settings.padding_top | times: 0.25 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.25 | round: 0 }}px 3rem;
   }
 
   .section-header {
@@ -184,11 +184,11 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h3 hide-mobile">{{ shop.name }}</span>
+              <a href="https://{{ shop.domain }}" style="text-decoration:none;" class="h3 {% unless request.path contains 'policies' %}hide-mobile{% endunless %}">{{ shop.name }}</a>
             {%- endif -%}
           </a>
         {% else %}
-          <span class="h3 hide-mobile">{{ shop.name }}</span>
+          <a href="https://{{ shop.domain }}" style="text-decoration:none;" class="h3 {% unless request.path contains 'policies' %}hide-mobile{% endunless %}">{{ shop.name }}</a>
         {% endif %}
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -241,6 +241,17 @@
     {%- endif -%}
     {% for block in section.blocks %}
       {%- if block.type == "image_link" -%}
+        {% style %}                  
+          .header-wrapper .image-link {
+            width: {{block.settings.image_width}}px;
+          }
+          @media screen and (min-width: 750px) {
+            .header-wrapper .image-link {
+              width: {{block.settings.image_width_desktop}}px;
+              {% if block.settings.image_margin_top_desktop != blank %}margin-top: {{block.settings.image_margin_top_desktop}}{% endif %};
+            }
+          }
+        {% endstyle %}
         {% render "image-link", settings:block.settings %}
       {%- endif -%}
     {% endfor %}
@@ -722,14 +733,34 @@
           "label": "Link"
         },
         {
+          "type": "checkbox",
+          "id": "make_black_white",
+          "label": "Grayscale?"
+        },
+        {
           "type": "range",
-          "id": "image_size",
+          "id": "image_width",
           "min": 30,
           "max": 500,
           "step": 10,
           "unit": "px",
           "label": "Image size",
-          "default": 30
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "image_width_desktop",
+          "min": 30,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Image size Desktop",
+          "default": 150
+        },
+        {
+          "type": "text",
+          "id": "image_margin_top_desktop",
+          "label": "Image Margin Top Desktop"
         }
       ]
     }
