@@ -4,6 +4,16 @@ slideshow-component {
   flex-direction: column;
 }
 
+slideshow-component .page-width {
+  width: 100%;
+}
+
+@media screen and (max-width: 749px) {
+  slideshow-component .page-width {
+    padding: 0;
+  }
+}
+
 slideshow-component .slideshow.banner {
   flex-direction: row;
   flex-wrap: nowrap;
@@ -21,6 +31,7 @@ slideshow-component .slideshow.banner {
 }
 
 @media screen and (max-width: 749px) {
+
   .slideshow--placeholder.banner--mobile-bottom.banner--adapt_image .slideshow__media,
   .slideshow--placeholder.banner--adapt_image:not(.banner--mobile-bottom) {
     height: 28rem;
@@ -40,15 +51,12 @@ slideshow-component .slideshow.banner {
   max-width: 54.5rem;
 }
 
-.slideshow__text > * {
+.slideshow__text>* {
   max-width: 100%;
 }
 
 @media screen and (max-width: 749px) {
-  slideshow-component.page-width .slideshow__text {
-    border-right: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity));
-    border-left: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity));
-  }
+  slideshow-component.page-width .slideshow__text {}
 
   .banner--mobile-bottom .slideshow__text.banner__box {
     max-width: 100%;
@@ -126,6 +134,25 @@ slideshow-component .slideshow.banner {
   }
 }
 
+slideshow-component.controls-on-slides .page-width {
+  position: relative;
+}
+
+slideshow-component.controls-on-slides .slideshow__controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: none;
+  background: linear-gradient(to top, rgb(var(--color-button-text)), transparent);
+}
+
+@media screen and (min-width: 750px) {
+  slideshow-component.controls-on-slides .slideshow__controls {
+    margin: 0 5rem;
+  }
+}
+
 slideshow-component:not(.page-width) .slider-buttons {
   border-right: 0;
   border-left: 0;
@@ -144,11 +171,7 @@ slideshow-component:not(.page-width) .slider-buttons {
   align-items: center;
 }
 
-@media screen and (max-width: 749px) {
-  slideshow-component.page-width .slideshow__autoplay {
-    right: 1.5rem;
-  }
-}
+@media screen and (max-width: 749px) {}
 
 @media screen and (min-width: 750px) {
   .slideshow__autoplay.slider-button {
@@ -183,6 +206,7 @@ slideshow-component:not(.page-width) .slider-buttons {
 }
 
 @media screen and (forced-colors: active) {
+
   .slideshow__autoplay path,
   .slideshow__autoplay:hover path {
     fill: CanvasText;
