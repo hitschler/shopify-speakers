@@ -1,17 +1,17 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/Hitschies_Kommunikationslogo_1080_ohne_weissraum.png",
+    "logo": "shopify://shop_images/Hitschies_Kommunikationslogo_1080_ohne_weissraum.png",
     "logo_width": 90,
-    "favicon": "shopify:\/\/shop_images\/hitschler-blume-weiss.png",
+    "favicon": "shopify://shop_images/hitschler-blume-weiss.png",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
@@ -106,12 +106,12 @@
     "sale_badge_color_scheme": "scheme-5",
     "sold_out_badge_color_scheme": "scheme-3",
     "social_facebook_link": "",
-    "social_instagram_link": "https:\/\/www.instagram.com\/philip_hitschler\/",
-    "social_whatsapp_link": "https:\/\/api.whatsapp.com\/send\/?phone=49015122189810&text=Hey%20Philip%2C%20%0Awir%20w%C3%BCrden%20dich%20gerne%20f%C3%BCr%20eine%20Keynote%20anfragen.",
-    "social_linkedin_link": "https:\/\/de.linkedin.com\/in\/philip-hitschler-becker-09588b91",
+    "social_instagram_link": "https://www.instagram.com/philip_hitschler/",
+    "social_whatsapp_link": "https://api.whatsapp.com/send/?phone=49015122189810&text=Hey%20Philip%2C%20%0Awir%20w%C3%BCrden%20dich%20gerne%20f%C3%BCr%20eine%20Keynote%20anfragen.",
+    "social_linkedin_link": "https://de.linkedin.com/in/philip-hitschler-becker-09588b91",
     "social_mail_link": "mailto:gf@hitschler.de",
     "social_youtube_link": "",
-    "social_tiktok_link": "https:\/\/www.tiktok.com\/@philiphitschler",
+    "social_tiktok_link": "https://www.tiktok.com/@philiphitschler",
     "social_twitter_link": "",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
@@ -139,13 +139,11 @@
         }
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "rgba(0,0,0,0)",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#2d2761",
           "button": "#121212",
